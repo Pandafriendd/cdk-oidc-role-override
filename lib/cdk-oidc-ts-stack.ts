@@ -12,7 +12,7 @@ export class CdkOidcTsStack extends cdk.Stack {
       url: 'https://exmaple.com',
     });
     
-    const childCR = this.node.tryFindChild('Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider') as unknown as cdk.CustomResourceProvider;
+    const childCR = this.node.tryFindChild('Custom::AWSCDKOpenIdConnectProviderCustomResourceProvider') as cdk.CustomResourceProvider;
     const childRole = childCR.node.tryFindChild('Role') as cdk.CfnResource;
     childRole.addOverride("Properties.RoleName", "test_role_name");
   
